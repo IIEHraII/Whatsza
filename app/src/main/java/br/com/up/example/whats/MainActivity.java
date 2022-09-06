@@ -36,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
                 phone = inputEditPhone.getText().toString();
 
                 if (phone.isEmpty()) {
-                    inputLayoutPhone.setError("Insira o número de telefone desejado ");
+                    inputLayoutPhone.setError("Insira um número de telefone");
                     return;
                 }
-                if(msg.isEmpty()){
-                    inputLayoutMsg.setError("Insira o a mensagem a ser enviada");
+                if (phone.length() < 12 || phone.length() > 12) {
+                    inputLayoutPhone.setError("Insira um número de telefone valido");
+                    return;
+                }
+                if (msg.isEmpty()) {
+                    inputLayoutMsg.setError("Insira a mensagem a ser enviada");
                     return;
                 }
 
@@ -49,6 +53,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-    }
+        }
 }
